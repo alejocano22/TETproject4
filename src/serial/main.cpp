@@ -1,13 +1,6 @@
-
 #include <omp.h>
-
 #include <cmath>
-#include <fstream>
-#include <iostream>
-#include <map>
-#include <string>
-#include <vector>
-
+#include "dna.h"
 #define P float
 
 const int nTrials = 10;
@@ -25,43 +18,15 @@ int main(int argc, char const *argv[]) {
         printf("Usage: %s {file}\n", argv[0]);
         exit(1);
     }
-    ifstream infile(argv[1]);
-    printf("\033[1m%5s %15s %15s\n", "Step", "Time, ms");
+
+    printf("\033[1m%5s %15s\n", "Step", "Time, ms");
     fflush(stdout);
     double t, dt;
 
     for (int iTrial = 1; iTrial <= nTrials; iTrial++) {
+        ifstream infile(argv[1]);
         const double t0 = omp_get_wtime();
-        // Should be in a function
-        string line;
-        vector<string> strings;
-        vector<map<char, int>> count;
-
-        while (getline(infile, line)) {
-            strings.push_back(line);
-        }
-
-        for (int col = 0; col < strings[0].size() - 1; ++col) {
-            map<char, int> currentCount;
-            for (int row = 0; row < strings.size(); ++row) {
-                currentCount[strings[row][col]]++;
-            }
-            count.push_back(currentCount);
-        }
-
-        for (int row = 0; row < count.size(); row++) {
-            char argMax;
-            char max = 0;
-            for (map<char, int>::iterator it = count[row].begin();
-                 it != count[row].end(); ++it) {
-                if (it->second > max) {
-                    argMax = it->first;
-                    max = it->second;
-                }
-            }
-            // cout << argMax;
-        }
-        // End of the function
+	applyDna(infile);
         const double t1 = omp_get_wtime();
         const double ts = t1 - t0;      // time in seconds
         const double tms = ts * 1.0e3;  // time in milliseconds
