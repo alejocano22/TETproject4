@@ -19,7 +19,6 @@ void applyDna(ifstream &infile){
   int numRows = strings.size();
   int count [4][numCols];
 
-#pragma omp parallel for
   for (int col = 0; col < numCols; ++col) {
     int currentCount [4] = {};
 
