@@ -13,7 +13,7 @@ run:    all
 	./dna
 
 queue:  all
-	echo 'cd $$PBS_O_WORKDIR ;  ./dna ~/TETproject4/datasets/ADN.txt' | qsub -l nodes=1:flat -l walltime=00:05:00 -N dnastring
+	echo 'cd $$PBS_O_WORKDIR ;  ./dna ~/TETproject4/datasets/example.txt' | qsub -l nodes=1:flat -l walltime=00:05:00 -N dnastring
 
 clean:
 	rm -f *.optrpt *.o dna *~ dnastring.*
