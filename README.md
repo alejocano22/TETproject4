@@ -1,4 +1,4 @@
-# Counting DNA Nucleotides
+﻿# Counting DNA Nucleotides
 ## Proyecto 4 - Tópicos especiales en telemática
 High Performance Computing
 ## Estudiantes
@@ -6,6 +6,13 @@ High Performance Computing
 - Luis Javier Palacio Mesa
 - Sebastián Giraldo Gómez
 ### Universidad EAFIT
+## Videosustentaciones
+#### Alejandro Cano Múnera
+link: 
+#### Luis Javier Palacio Mesa
+link: 
+####Sebastián Giraldo Gómez
+link: 
 ## Problema o caso de estudio a resolver
 El ADN es una biomolécula que contiene la información necesaria para generar un organismo. Está compuesta por muchas unidades llamadas nucleótidos los cuales están formados de un grupo fosfato, una molécula de azúcar de cinco carbonos y una base nitrogenada.
 </br>
