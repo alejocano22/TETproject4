@@ -18,6 +18,7 @@ void applyDna(ifstream &infile){
   int numCols = strings[0].size() -1;
   int numRows = strings.size();
   int count [4][numCols];
+  char resultBuffer[numCols];
 
   for (int col = 0; col < numCols; ++col) {
     int currentCount [4] = {};
@@ -67,7 +68,14 @@ void applyDna(ifstream &infile){
 	max = count[row][col];
       } 
     }
+    resultBuffer[col] = argMax;
     //    cout << argMax;
   }
+  ofstream outputFile;
+  outputFile.open ("result.txt");
+  outputFile << resultBuffer;
+  outputFile << "\n";
+  outputFile.close();
+  
 }
 // valorant?
