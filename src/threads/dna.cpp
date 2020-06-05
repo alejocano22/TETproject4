@@ -15,11 +15,11 @@ void applyDna(ifstream &infile){
     strings.push_back(line);
   }
 
-  int numCols = strings[0].size() -1;
+  int numCols = strings[0].size();
   int numRows = strings.size();
   int count [4][numCols];
-  char resultBuffer[numCols];
-
+  char resultBuffer[numCols + 1];
+  resultBuffer[numCols] = 0;
 #pragma omp parallel for
   for (int col = 0; col < numCols; ++col) {
     int currentCount [4] = {};
@@ -46,7 +46,7 @@ void applyDna(ifstream &infile){
     count[3][col] = currentCount[3];
   }
  
-  for (int col = 0; col < strings[0].size(); col++){
+  for (int col = 0; col < numCols; col++){
     char argMax;
     int max = 0;
     for (int row = 0; row < 4; row++){
@@ -70,13 +70,11 @@ void applyDna(ifstream &infile){
       } 
     }
     resultBuffer[col] = argMax;
-    //    cout << argMax;
   }
 
   ofstream outputFile;
   outputFile.open ("result.txt");
-  outputFile << resultBuffer;
-  outputFile << "\n";
+  outputFile << resultBuffer << endl;
   outputFile.close();
 }
 // valorant?

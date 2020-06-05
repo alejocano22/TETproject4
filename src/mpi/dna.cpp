@@ -11,8 +11,8 @@ void applyDna(fstream &file, int const myRank, int const nRanks){
   getline(file, firstLine);
  
   int numCols = firstLine.size();
-  char resultBuffer[numCols];
-
+  char resultBuffer[numCols + 1];
+  resultBuffer[numCols] = 0;
   const int colPerProcess = int(double(numCols) / double(nRanks));
   int initialPosition = colPerProcess*myRank;
   vector<string> strings; 
@@ -86,15 +86,9 @@ void applyDna(fstream &file, int const myRank, int const nRanks){
   MPI_Allgather(MPI_IN_PLACE, 0, MPI_DATATYPE_NULL, &resultBuffer[0], colPerProcess, MPI_CHAR, MPI_COMM_WORLD);
   if (myRank == 0){
     ofstream outputFile;
-    outputFile.open ("result.txt");
-    outputFile << resultBuffer;
-    outputFile << "\n";
+    outputFile.open("result.txt");
+    outputFile << resultBuffer << endl;
     outputFile.close();
-    /*
-    for (int i = 0; i < numCols; i++){
-      cout << resultBuffer[i]; // escribir a un fichero externo
-    }
-    */
   }
   //  cout << endl;
 }
