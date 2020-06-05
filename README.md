@@ -66,7 +66,7 @@ Establecer un comparativo entre las diferentes formas de resolver un problema  e
 
     b. Aplicar la técnica de diseño de algoritmo PCAM (particionamiento, comunicación, aglomeración, mapeo a UE), en donde defina   claramente el mecanismo de particionamiento (funcional y/o datos), mecanismos de comunicación entre tareas, optimización o aglomeración y finalmente el mapeo a unidades de ejecución (cores de procesamiento).</br>
 
-c. Realizar el análisis del SpeedUp y Eficiencia para varios escenarios de recursos.</br>
+    c. Realizar el análisis del SpeedUp y Eficiencia para varios escenarios de recursos.</br>
 
 4. Implementar el algoritmo en la plataforma MPI dispuesta para el curso.  </br>
 
