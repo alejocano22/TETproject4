@@ -2,6 +2,7 @@
 #include <mpi.h>
 #include <cmath>
 #include "dna.h"
+#include <iostream>
 #define P float
 
 const int nTrials = 10;
@@ -14,7 +15,7 @@ double Stats(double &x, double &dx) {
   dx = sqrt(dx / double(nTrials - skipTrials) - x * x);
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char *argv[]) {
   if (argc < 2) {
     printf("Usage: %s {file}\n", argv[0]);
     exit(1);
@@ -33,11 +34,14 @@ int main(int argc, char const *argv[]) {
   double t, dt;
 
   for (int iTrial = 1; iTrial <= nTrials; iTrial++) {
-    ifstream infile(argv[1]);
-
+    fstream file(argv[1]);
+    if(!file.is_open()){
+      cout << "Error leyendo el fichero" << endl;
+      exit(1);
+    }
     MPI_Barrier(MPI_COMM_WORLD);
     const double t0 = omp_get_wtime();
-    applyDna(infile);
+    applyDna(file, myRank, nRanks);
     MPI_Barrier(MPI_COMM_WORLD);
     const double t1 = omp_get_wtime();
     

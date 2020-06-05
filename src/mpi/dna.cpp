@@ -6,23 +6,36 @@
 
 using namespace std;
 
-void applyDna(ifstream &infile){
-  string line;
-  vector<string> strings;
+void applyDna(fstream &file, int const myRank, int const nRanks){
+  string firstLine;
+  getline(file, firstLine);
+ 
+  int numCols = firstLine.size(); // de pronto falta agregar -1
+  
+  const int colPerProcess = int(double(numCols) / double(nRanks));
+  int initialPosition = colPerProcess*myRank;
+  vector<string> strings; 
+  int totalRows = 0;
 
+  while(true){
+    file.seekp(initialPosition + totalRows*(numCols + 1));        
+    char buffer[colPerProcess + 1];
+    file.read(buffer, colPerProcess);
 
-  while (getline(infile, line)) {
-    strings.push_back(line);
-  }
+    if(!file){
+      break;
+    }
 
-  int numCols = strings[0].size() -1;
-  int numRows = strings.size();
-  int count [4][numCols];
-
-  for (int col = 0; col < numCols; ++col) {
+    buffer[colPerProcess] = 0;  
+    string dna(buffer);
+    strings.push_back(dna);
+    totalRows++;
+  } 
+  int count [4][colPerProcess];
+#pragma omp parallel for
+  for (int col = 0; col < colPerProcess; ++col) {
     int currentCount [4] = {};
-
-    for (int row = 0; row < numRows; ++row) {
+    for (int row = 0; row < totalRows; ++row) {
       switch (strings[row][col]) {
       case 'A':
 	currentCount[0]++;
@@ -43,8 +56,8 @@ void applyDna(ifstream &infile){
     count[2][col] = currentCount[2];
     count[3][col] = currentCount[3];
   }
- 
-  for (int col = 0; col < strings[0].size(); col++){
+  
+  for (int col = 0; col < colPerProcess; col++){
     char argMax;
     int max = 0;
     for (int row = 0; row < 4; row++){
@@ -69,5 +82,6 @@ void applyDna(ifstream &infile){
     }
     //    cout << argMax;
   }
+  //  cout << endl;
 }
 // valorant?

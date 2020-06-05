@@ -1,4 +1,4 @@
 #include <fstream>
 #include <omp.h>
 
-void applyDna(std::ifstream&);
+void applyDna(std::fstream&, int const, int const);
