@@ -10,8 +10,9 @@ void applyDna(fstream &file, int const myRank, int const nRanks){
   string firstLine;
   getline(file, firstLine);
  
-  int numCols = firstLine.size(); // de pronto falta agregar -1
-  
+  int numCols = firstLine.size();
+  char resultBuffer[numCols];
+
   const int colPerProcess = int(double(numCols) / double(nRanks));
   int initialPosition = colPerProcess*myRank;
   vector<string> strings; 
@@ -32,7 +33,6 @@ void applyDna(fstream &file, int const myRank, int const nRanks){
     totalRows++;
   } 
   int count [4][colPerProcess];
-#pragma omp parallel for
   for (int col = 0; col < colPerProcess; ++col) {
     int currentCount [4] = {};
     for (int row = 0; row < totalRows; ++row) {
@@ -80,7 +80,15 @@ void applyDna(fstream &file, int const myRank, int const nRanks){
 	max = count[row][col];
       } 
     }
-    //    cout << argMax;
+
+    resultBuffer[initialPosition + col] = argMax;
+  }
+  MPI_Allgather(MPI_IN_PLACE, 0, MPI_DATATYPE_NULL, &resultBuffer[0], colPerProcess, MPI_CHAR, MPI_COMM_WORLD);
+  if (myRank == 0){
+    for (int i = 0; i < numCols; i++){
+      cout << resultBuffer[i]; // escribir a un fichero externo
+    }
+  
   }
   //  cout << endl;
 }
