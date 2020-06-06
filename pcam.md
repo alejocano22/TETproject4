@@ -19,7 +19,7 @@ Archivo de texto plano (.txt) con la cadena de ADN de consenso que indica el car
 # PCAM
 ![PCAM](https://github.com/alejocano22/TETproject4/blob/master/images/PCAM.gif)
 ## 1. Particionado
-
+Se realiza un particionado por datos. </br>
 T1 se encargará de contar la cantidad de veces que aparece cada nucléotido en determinada posición (una determinada columna) entre todas las cadenas de ADN. Es decir, hará un recorrido en filas para cierta columna.
 
 T2 se encargará de ejecutar tareas t1 para contar la cantidad de veces que aparece cada nucleótido en cierta cantidad de columnas entre todas las cadenas de ADN y así armar una submatriz de perfil.
@@ -28,15 +28,20 @@ T3 se encargará de obtener una subcadena de consenso a partir de analizar los n
 
 T4 Se encargará de recopilar los resultados en un único host para obtener la cadena completa de consenso.
 
-## 2. Comunicación
-La tarea T1 se puede comunicar con T2 usando memoria compartida.
-La tarea T2 se puede comunicar con T3  usando memoria compartida.
-La tarea T3 se puede comunicar con T4 a través de MPI_Allgather
+![Particionado](https://github.com/alejocano22/TETproject4/blob/master/images/Diagrama.jpg)
 
-La tarea candidata para fuertemente acoplado puede ser T1, T2 puesto que se pueden tirar varios hilos cada uno con la tarea T1 para que procese cada hilo un solo columna, o a un hilo se le pueden dar varias tareas T1, es decir que cada hilo procese varias columnas.
+## 2. Comunicación
+La tarea T1 se puede comunicar con T2 usando memoria compartida. </br>
+La tarea T2 se puede comunicar con T3  usando memoria compartida.  </br>
+La tarea T3 se puede comunicar con T4 a través de MPI_Allgather  </br>
+
+La tarea candidata para fuertemente acoplado puede ser T1 y T2 puesto que se pueden tirar varios hilos cada uno con la tarea T1 para que procese cada hilo una solo columna, o a un hilo se le pueden dar varias tareas T1, es decir que cada hilo procese varias columnas.  </br>
 
 La tarea candidata para débilmente acoplado puede ser T4 porque incluye la tarea T3 y esta a su vez la tarea T2 que inicia tareas T1. El tiempo de procesamiento de T4 es igual al tiempo de procesamiento de todas las Tareas T3 más el tiempo que demora en comunicar. Se puede pedir a varios nodos que ejecuten la tarea T3. El procesamiento sería colPerProcess^2, entonces el tiempo del procesamiento sería mayor que el tiempo de las comunicaciones, dónde los resultados no tardarían mucho en transmitirse (T4) puesto que se trata de un solo arreglo, en comparación al procesamiento.
+
 ## 3. Aglomeración
 A cada hilo se le puede asignar varias tareas T1 para que cada hilo de un mejor rendimiento.
-## 4. Mapeo
+![aglomeracion](https://github.com/alejocano22/TETproject4/blob/master/images/MPI_Threads.jpg)
 
+## 4. Mapeo
+La cantidad de Workers con las que se cuenta en el cluster colfax es de 4. El nodo 0 es el encargado de asignar los datos particionados y de escribir en el archivo de salida. Esto se realiza a través del método Allgather( ... ) 
