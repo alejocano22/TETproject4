@@ -1,4 +1,4 @@
-﻿# Counting DNA Nucleotides
+# Finding a Most Likely Common Ancestor
 ## Proyecto 4 - Tópicos especiales en telemática
 High Performance Computing
 ## Estudiantes
@@ -6,13 +6,18 @@ High Performance Computing
 - Luis Javier Palacio Mesa
 - Sebastián Giraldo Gómez
 ### Universidad EAFIT
+## Drive
+https://drive.google.com/drive/u/0/folders/1uW9rhO2C9FwYsvD1Fl9Fjj6um4ayzVk4
+
 ## Videosustentaciones
 #### Alejandro Cano Múnera
 link: 
 #### Luis Javier Palacio Mesa
+
 link: 
 #### Sebastián Giraldo Gómez
 link: 
+
 ## Problema o caso de estudio a resolver
 El ADN es una biomolécula que contiene la información necesaria para generar un organismo. Está compuesta por muchas unidades llamadas nucleótidos los cuales están formados de un grupo fosfato, una molécula de azúcar de cinco carbonos y una base nitrogenada.
 </br>
@@ -25,15 +30,22 @@ Para comprender la magnitud del problema establezcamos el siguiente comparativo:
 </br>
 Un ejemplo de una cadena de ADN de longitud 21 es "ATGCTTCAGATAGGTCTTACG".
 </br>
-Ahora dada una cadena s de ADN  de longitud como máximo 1000 nt (Nucleótidos), se deben regresar cuatro enteros separados por espacios que cuentan el número respectivo de veces que aparecen los símbolos 'A', 'C', 'G' y 'T' en la cadena s.
+![Problema](https://github.com/alejocano22/TETproject4/blob/master/images/Problem1.jpg)</br>
+Una matriz es una tabla rectangular de valores dividida en filas y columnas. Una matriz m × n tiene m filas y n columnas. Dada una matriz A, escribimos A i,j para indicar el valor encontrado en la intersección de la fila i y la columna j.
 
-Ejemplo:
-</br>
-Conjunto de datos de muestra</br>
-AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC
-</br>
-Salida de muestra</br>
-20 12 17 21
+Digamos que tenemos una colección de cadenas de ADN, todas con la misma longitud n. Su matriz de perfil es una matriz 4 × n P en la cual P1, j representa el número de veces que 'A' ocurre en la posición j de una de las cadenas, P2, j representa el número de veces que C ocurre en la posición j , y así sucesivamente (ver más abajo).
+
+Una cadena de consenso c es una cadena de longitud n formada a partir de nuestra colección tomando el símbolo más común en cada posición; el símbolo j de c corresponde, por lo tanto, al símbolo que tiene el valor máximo en la columna j-ésima de la matriz de perfil. Por supuesto, puede haber más de un símbolo más común, lo que lleva a múltiples posibles cadenas de consenso.
+
+##### Datos de entrada:
+Archivo de texto plano (.txt) con y cadenas de ADN y x nucleótidos (caracteres) que las conforman. </br>
+Los caracteres validos son: A T G C 
+
+##### Datos de salida:
+Archivo de texto plano (.txt) con la cadena de ADN de consenso que indica el caracter que más se repite por columna entre las cadenas de ADN dadas.
+
+##### Ejemplo:
+![Problema](https://github.com/alejocano22/TETproject4/blob/master/images/Problem2.jpg)
 
 ## Objetivos y alcance
 ### Objetivos
@@ -44,7 +56,7 @@ Salida de muestra</br>
 - Comparar el impacto que tiene ejecutar estos problema en múltiples nodos e hilos.
 
 ### Alcance
-Establecer un comparativo entre las diferentes formas de resolver un problema  e identificar el desempeño computacional de cada una de ellas para finalmente poder analizar una cadena de ADN la cual puede ser muy larga y por tanto muy exigente en cuanto a recursos computacionales.
+Establecer un comparativo entre las diferentes formas de resolver un problema  e identificar el desempeño computacional de cada una de ellas para finalmente poder analizar un conjunto de cadenas de ADN las cuales pueden ser muy largas y por tanto muy exigentes en cuanto a recursos computacionales.
 
 ## Requerimientos técnicos
 - Linux
@@ -72,3 +84,41 @@ Establecer un comparativo entre las diferentes formas de resolver un problema  e
 
 5. Realizar el análisis de rendimiento con varios números de procesadores (1: secuencial,
 paralelo: 2, 3 y 4 procesadores). SpeedUp y Eficiencia. Hacer conclusiones.</br>
+
+## Compilación y ejecución
+Realizar cada uno de los siguientes comandos en el folder corresponiente
+```sh
+make
+```
+```sh
+make queue
+```
+Para visualizar los resultados:
+```sh
+cat dnastring.o<id>
+```
+Para visualizar la cadena de salida del programa:
+```sh
+cat result.txt
+```
+### Serial
+```sh
+cd src/serial/arrayVersion
+```
+### Threads
+```sh
+cd src/threads
+```
+### MPI
+```sh
+cd src/mpi
+```
+## MPI with threads
+```sh
+cd src/mpi-threads
+```
+
+## Análisis de resultados
+
+
+## Código de honor
