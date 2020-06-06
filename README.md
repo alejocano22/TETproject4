@@ -85,6 +85,34 @@ Establecer un comparativo entre las diferentes formas de resolver un problema  e
 5. Realizar el análisis de rendimiento con varios números de procesadores (1: secuencial,
 paralelo: 2, 3 y 4 procesadores). SpeedUp y Eficiencia. Hacer conclusiones.</br>
 
+## Pseudocódigo
+```sh
+for(int col = 0; col < totalColumnas; col+=1){
+  for (int row = 0; row < totalRows; row+=1) {
+    if (strings[row][col] == "A") {
+      count[A][col] +=1
+
+    }else if (strings[row][col] == "T"){
+      count[T][col] +=1
+
+    }else if (strings[row][col] == "G"){
+      count[G][col] +=1
+
+    }else if (strings[row][col] == "C"){
+      count[C][col] +=1
+
+    }
+  }
+}
+
+for (int col = 0; col < totalColumnas; col+=1){
+  argMax = searchMax(count[col])
+  resultBuffer[col] = argMax
+}
+
+save resultBuffer
+```
+
 ## Compilación y ejecución
 Realizar cada uno de los siguientes comandos en el folder corresponiente
 ```sh
@@ -147,3 +175,23 @@ La eficiencia entre el código serial frente a el código con MPI ejecutado en 4
 
 
 ## Código de honor
+Idea de problema tomada de: http://rosalind.info/problems/cons/ </br>
+Se utilizó código fuente e ideas del curso Fundamentals of Parallelism on Intel Architecture desarrollado en Coursera. </br>
+Alejandro Cano Múnera </br>
+- Implementación de solución serial con Arrays.
+- Implementación de estructura de datos para evitar la concurrencia de hilos en una sección crítica.
+- Adecuación de archivo main.cpp para ejecución con MPI y escritura de archivos de salida.
+
+</br>
+Luis Javier Palacio Mesa </br>
+- Implementación de solución serial con Mapas.
+- Implementación de solución con hilos (OpenMP).
+- Implementación de solución con MPI.
+
+</br>
+Sebastián Giraldo Gómez </br>
+- Optimización a solución serial con Arrays.
+- Análisis de sección critica e implementación de hilos con MPI
+- Idea e implementación del Allgather en MPI para recopilar los resultados de los nodos.
+
+Lo anterior descrito no implica que fueran tareas excluyentes dado que todos los estudiantes se apoyaron mutuamente en la implementación y análisis del problema y la solución dada.
