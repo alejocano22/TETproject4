@@ -119,6 +119,22 @@ cd src/mpi-threads
 ```
 
 ## Análisis de resultados
+Para comprobar el correcto funcionamiento del programa se utilizo una cadena de ADN corta (de 8 nucleótidos).
+Sin embargo, para exigir los programas computacionalmente se genero un archivo de prueba de 10.000 cadenas de ADN, con 10.000 nucleótidos cada una. Los resultados se presentaran a continuación.
+
+### Serial
+![serial](https://github.com/alejocano22/TETproject4/blob/master/images/Serial/Array/Serial_10k.PNG)
+### Threads
+![threads](https://github.com/alejocano22/TETproject4/blob/master/images/Threads/Threads_10k.PNG)
+### MPI con 4 nodos
+![mpi]()
+## MPI con 4 nodos y threads
+![mpi-threads](https://github.com/alejocano22/TETproject4/blob/master/images/MPI/MPI4_10k.PNG)
+
+### Comparativo
+![tablas](https://github.com/alejocano22/TETproject4/blob/master/images/Tablas.PNG)
+
+![mpinodes](https://github.com/alejocano22/TETproject4/blob/master/images/MPI%20with%20threads.PNG)
 
 
 ## Código de honor
