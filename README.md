@@ -27,8 +27,7 @@ Existen cuatro bases nitrogenadas: adenina (A), citosina (C), guanina (G) y timi
 ![adn](https://github.com/alejocano22/TETproject4/blob/master/images/ADNestructura.png)
 Una cadena es una colección ordenada de símbolos seleccionados de algún alfabeto y formados en una palabra, la longitud de una cadena es el número de símbolos que contiene, esta secuencia de ADN puede ser 3200’000.000 de letras de longitud y es que un trozo de ADN de 1 mm de longitud contiene una secuencia de pares de bases de más de 3 millones de letras.
 Para comprender la magnitud del problema establezcamos el siguiente comparativo: Si desenrollamos todo el ADN de las células de un cuerpo humano, cubriremos la distancia de la Tierra a la Luna 7.000 veces. Veamos los cálculos: el total de células del cuerpo humano (2 billones = 2 x 10^12 células) y la longitud equivale al recorrido de 7.000 viajes de ida y vuelta a la Luna (distancia Tierra – Luna = 300.000 Km)
-</br>
-Un ejemplo de una cadena de ADN de longitud 21 es "ATGCTTCAGATAGGTCTTACG".
+
 </br>
 ![Problema](https://github.com/alejocano22/TETproject4/blob/master/images/Problem1.jpg)</br>
 Una matriz es una tabla rectangular de valores dividida en filas y columnas. Una matriz m × n tiene m filas y n columnas. Dada una matriz A, escribimos A i,j para indicar el valor encontrado en la intersección de la fila i y la columna j.
