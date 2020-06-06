@@ -11,10 +11,11 @@ https://drive.google.com/drive/u/0/folders/1uW9rhO2C9FwYsvD1Fl9Fjj6um4ayzVk4
 
 ## Videosustentaciones
 #### Alejandro Cano Múnera
-link: 
-#### Luis Javier Palacio Mesa
+link: https://youtu.be/1WKTg3dfKNk
 
+#### Luis Javier Palacio Mesa
 link: 
+
 #### Sebastián Giraldo Gómez
 link: https://youtu.be/txfBX3f5Br0
 
