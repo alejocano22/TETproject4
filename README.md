@@ -30,7 +30,7 @@ Una cadena es una colección ordenada de símbolos seleccionados de algún alfab
 Para comprender la magnitud del problema establezcamos el siguiente comparativo: Si desenrollamos todo el ADN de las células de un cuerpo humano, cubriremos la distancia de la Tierra a la Luna 7.000 veces. Veamos los cálculos: el total de células del cuerpo humano (2 billones = 2 x 10^12 células) y la longitud equivale al recorrido de 7.000 viajes de ida y vuelta a la Luna (distancia Tierra – Luna = 300.000 Km)
 
 </br>
-![Problema](https://github.com/alejocano22/TETproject4/blob/master/images/Problem1.jpg)</br>
+
 Una matriz es una tabla rectangular de valores dividida en filas y columnas. Una matriz m × n tiene m filas y n columnas. Dada una matriz A, escribimos A i,j para indicar el valor encontrado en la intersección de la fila i y la columna j.
 
 Digamos que tenemos una colección de cadenas de ADN, todas con la misma longitud n. Su matriz de perfil es una matriz 4 × n P en la cual P1, j representa el número de veces que 'A' ocurre en la posición j de una de las cadenas, P2, j representa el número de veces que C ocurre en la posición j , y así sucesivamente (ver más abajo).
