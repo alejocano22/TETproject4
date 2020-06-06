@@ -182,13 +182,11 @@ Alejandro Cano Múnera </br>
 - Implementación de estructura de datos para evitar la concurrencia de hilos en una sección crítica.
 - Adecuación de archivo main.cpp para ejecución con MPI y escritura de archivos de salida.
 
-</br>
 Luis Javier Palacio Mesa </br>
 - Implementación de solución serial con Mapas.
 - Implementación de solución con hilos (OpenMP).
 - Implementación de solución con MPI.
 
-</br>
 Sebastián Giraldo Gómez </br>
 - Optimización a solución serial con Arrays.
 - Análisis de sección critica e implementación de hilos con MPI
