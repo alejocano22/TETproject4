@@ -25,6 +25,7 @@ Existen cuatro bases nitrogenadas: adenina (A), citosina (C), guanina (G) y timi
 
 
 ![adn](https://github.com/alejocano22/TETproject4/blob/master/images/ADNestructura.png)
+
 Una cadena es una colección ordenada de símbolos seleccionados de algún alfabeto y formados en una palabra, la longitud de una cadena es el número de símbolos que contiene, esta secuencia de ADN puede ser 3200’000.000 de letras de longitud y es que un trozo de ADN de 1 mm de longitud contiene una secuencia de pares de bases de más de 3 millones de letras.
 Para comprender la magnitud del problema establezcamos el siguiente comparativo: Si desenrollamos todo el ADN de las células de un cuerpo humano, cubriremos la distancia de la Tierra a la Luna 7.000 veces. Veamos los cálculos: el total de células del cuerpo humano (2 billones = 2 x 10^12 células) y la longitud equivale al recorrido de 7.000 viajes de ida y vuelta a la Luna (distancia Tierra – Luna = 300.000 Km)
 
@@ -44,7 +45,7 @@ Los caracteres validos son: A T G C
 Archivo de texto plano (.txt) con la cadena de ADN de consenso que indica el caracter que más se repite por columna entre las cadenas de ADN dadas.
 
 ##### Ejemplo:
-![Problema](https://github.com/alejocano22/TETproject4/blob/master/images/Problem2.jpg)
+![EjemploProblema](https://github.com/alejocano22/TETproject4/blob/master/images/Problem2.jpg)
 
 ## Objetivos y alcance
 ### Objetivos
