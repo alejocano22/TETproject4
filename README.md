@@ -123,16 +123,25 @@ Para comprobar el correcto funcionamiento del programa se utilizo una cadena de 
 Sin embargo, para exigir los programas computacionalmente se genero un archivo de prueba de 10.000 cadenas de ADN, con 10.000 nucleótidos cada una. Los resultados se presentaran a continuación.
 
 ### Serial
+![serial-1](https://github.com/alejocano22/TETproject4/blob/master/images/Problem2.jpg)
 ![serial](https://github.com/alejocano22/TETproject4/blob/master/images/Serial/Array/Serial_10k.PNG)
+
 ### Threads
+![threads-1](https://github.com/alejocano22/TETproject4/blob/master/images/Threads.jpg)
 ![threads](https://github.com/alejocano22/TETproject4/blob/master/images/Threads/Threads_10k.PNG)
+
 ### MPI con 4 nodos
-![mpi]()
+![mpi-1](https://github.com/alejocano22/TETproject4/blob/master/images/MPI.jpg)
+![mpi](https://github.com/alejocano22/TETproject4/blob/master/images/MPI/MPI4_10k.PNG)
+
 ## MPI con 4 nodos y threads
-![mpi-threads](https://github.com/alejocano22/TETproject4/blob/master/images/MPI/MPI4_10k.PNG)
+![mpi-threads-1](https://github.com/alejocano22/TETproject4/blob/master/images/MPI_Threads.jpg)
+![mpi-threads](https://github.com/alejocano22/TETproject4/blob/master/images/MPI-Threads/MPI4_Threads_10k.PNG)
 
 ### Comparativo
 ![tablas](https://github.com/alejocano22/TETproject4/blob/master/images/Tablas.PNG)
+Como se puede observar hay una evidente mejora entre el código serial versus el código con MPI ejecutado en 4 nodos y con hilos, presentando un SpeedUp de 35.63, por otra parte el código serial versus el código con hilos presenta un SpeedUp de 21.88. </br>
+La eficiencia entre el código serial frente a el código con MPI ejecutado en 4 nodos y con hilos es de 8.91, sin embargo, si analizamos la eficiencia entre MPI en 1 nodo con hilos y MPI en 4 nodo con hilos la cual da como resultado 0.37, nos da a entender que no es eficiente resolver el problema en n nodos, como se ve a continuación a medida que se aumentan los nodos disminuye el tiempo de ejecución, pero cada mejora es mínima y no representa  un cambio considerable a tener en cuenta frente al aumento de nodos. Por lo tanto se concluye que el mejor algoritmo es MPI con hilos ejecutado en un solo nodo.
 
 ![mpinodes](https://github.com/alejocano22/TETproject4/blob/master/images/MPI%20with%20threads.PNG)
 
