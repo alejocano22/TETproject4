@@ -16,7 +16,7 @@ link:
 
 link: 
 #### Sebastián Giraldo Gómez
-link: 
+link: https://youtu.be/aL94nw1pAhc
 
 ## Problema o caso de estudio a resolver
 El ADN es una biomolécula que contiene la información necesaria para generar un organismo. Está compuesta por muchas unidades llamadas nucleótidos los cuales están formados de un grupo fosfato, una molécula de azúcar de cinco carbonos y una base nitrogenada.
