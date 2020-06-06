@@ -177,6 +177,7 @@ La eficiencia entre el código serial frente a el código con MPI ejecutado en 4
 ## Código de honor
 Idea de problema tomada de: http://rosalind.info/problems/cons/ </br>
 Se utilizó código fuente e ideas del curso Fundamentals of Parallelism on Intel Architecture desarrollado en Coursera. </br>
+
 Alejandro Cano Múnera </br>
 - Implementación de solución serial con Arrays.
 - Implementación de estructura de datos para evitar la concurrencia de hilos en una sección crítica.
